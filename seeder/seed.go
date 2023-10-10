@@ -1,0 +1,1270 @@
+package seeder
+
+import (
+	"companyXyzProject/Model"
+	"companyXyzProject/service"
+	"fmt"
+	"math/rand"
+	"strings"
+	"time"
+)
+
+func seedData() {
+	// Set CSV File Name
+	Model.CsvFileName = "isbn_ean.csv"
+
+	// append some data to the database publisher
+	publisher1 := Model.Publisher{
+		ID:   1,
+		Name: "Paste Magazine",
+	}
+	Model.DB.Publishers = append(Model.DB.Publishers, publisher1)
+	publisher2 := Model.Publisher{
+		ID:   2,
+		Name: "Publishers Weekly",
+	}
+	Model.DB.Publishers = append(Model.DB.Publishers, publisher2)
+	publisher3 := Model.Publisher{
+		ID:   3,
+		Name: "Graywolf Press",
+	}
+	Model.DB.Publishers = append(Model.DB.Publishers, publisher3)
+	publisher4 := Model.Publisher{
+		ID:   4,
+		Name: "McSweeney's",
+	}
+	Model.DB.Publishers = append(Model.DB.Publishers, publisher4)
+
+	// append some data to databae author
+	author1 := Model.Author{
+		ID:         1,
+		FirstName:  "Joel",
+		LastName:   "Hartse",
+		MiddleName: "",
+	}
+	Model.DB.Authors = append(Model.DB.Authors, author1)
+	author2 := Model.Author{
+		ID:         2,
+		FirstName:  "Hannah",
+		LastName:   "Templer,",
+		MiddleName: "P.",
+	}
+	Model.DB.Authors = append(Model.DB.Authors, author2)
+	author3 := Model.Author{
+		ID:         3,
+		FirstName:  "Kingsley",
+		LastName:   "Amis",
+		MiddleName: "",
+	}
+	Model.DB.Authors = append(Model.DB.Authors, author3)
+	author4 := Model.Author{
+
+		ID:         4,
+		FirstName:  "Fannie",
+		LastName:   "Flagg",
+		MiddleName: "Peters",
+	}
+	Model.DB.Authors = append(Model.DB.Authors, author4)
+	author5 := Model.Author{
+		ID:         5,
+		FirstName:  "Rainer Steel",
+		LastName:   "Rilke",
+		MiddleName: "",
+	}
+	Model.DB.Authors = append(Model.DB.Authors, author5)
+	author6 := Model.Author{
+		ID:         6,
+		FirstName:  "Marguerite",
+		LastName:   "Duras",
+		MiddleName: "Z.",
+	}
+	Model.DB.Authors = append(Model.DB.Authors, author6)
+	author7 := Model.Author{
+		ID:         7,
+		FirstName:  "Camille Byron",
+		LastName:   "Paglia",
+		MiddleName: "",
+	}
+	Model.DB.Authors = append(Model.DB.Authors, author7)
+
+	// append some data to database bookauthor
+	bookauthor1 := Model.BookAuthor{
+		BookID:   1,
+		AuthorID: 1,
+	}
+	Model.DB.BookAuthors = append(Model.DB.BookAuthors, bookauthor1)
+	bookauthor2 := Model.BookAuthor{
+		BookID:   1,
+		AuthorID: 2,
+	}
+	Model.DB.BookAuthors = append(Model.DB.BookAuthors, bookauthor2)
+	bookauthor3 := Model.BookAuthor{
+		BookID:   1,
+		AuthorID: 6,
+	}
+	Model.DB.BookAuthors = append(Model.DB.BookAuthors, bookauthor3)
+	bookauthor4 := Model.BookAuthor{
+		BookID:   2,
+		AuthorID: 3,
+	}
+	Model.DB.BookAuthors = append(Model.DB.BookAuthors, bookauthor4)
+	bookauthor5 := Model.BookAuthor{
+		BookID:   3,
+		AuthorID: 3,
+	}
+	Model.DB.BookAuthors = append(Model.DB.BookAuthors, bookauthor5)
+	bookauthor6 := Model.BookAuthor{
+		BookID:   4,
+		AuthorID: 2,
+	}
+	Model.DB.BookAuthors = append(Model.DB.BookAuthors, bookauthor6)
+	bookauthor7 := Model.BookAuthor{
+		BookID:   4,
+		AuthorID: 4,
+	}
+	Model.DB.BookAuthors = append(Model.DB.BookAuthors, bookauthor7)
+	bookauthor8 := Model.BookAuthor{
+		BookID:   4,
+		AuthorID: 7,
+	}
+	Model.DB.BookAuthors = append(Model.DB.BookAuthors, bookauthor8)
+	bookauthor9 := Model.BookAuthor{
+		BookID:   5,
+		AuthorID: 5,
+	}
+	Model.DB.BookAuthors = append(Model.DB.BookAuthors, bookauthor9)
+
+	// append some data to database bookpublisher
+	bookpublisher1 := Model.BookPublisher{
+		PublisherID: 1,
+		BookID:      1,
+	}
+	Model.DB.BookPublishers = append(Model.DB.BookPublishers, bookpublisher1)
+	bookpublisher2 := Model.BookPublisher{
+		PublisherID: 2,
+		BookID:      2,
+	}
+	Model.DB.BookPublishers = append(Model.DB.BookPublishers, bookpublisher2)
+	bookpublisher3 := Model.BookPublisher{
+		PublisherID: 3,
+		BookID:      3,
+	}
+	Model.DB.BookPublishers = append(Model.DB.BookPublishers, bookpublisher3)
+	bookpublisher4 := Model.BookPublisher{
+		PublisherID: 4,
+		BookID:      3,
+	}
+	Model.DB.BookPublishers = append(Model.DB.BookPublishers, bookpublisher4)
+	bookpublisher5 := Model.BookPublisher{
+		PublisherID: 5,
+		BookID:      4,
+	}
+	Model.DB.BookPublishers = append(Model.DB.BookPublishers, bookpublisher5)
+
+	// append some data to database book
+	book1 := Model.Book{
+		ID:              1,
+		Title:           "American Elf",
+		ISBN13:          "9781891830853",
+		ISBN10:          "1891830856",
+		ListPrice:       1000,
+		PublicationYear: 2004,
+		ImageURL:        "https://images-us.bookshop.org/ingram/9781784986445.jpg?height=500&v=v2",
+		Edition:         "Book 2",
+	}
+	Model.DB.Books = append(Model.DB.Books, book1)
+	book2 := Model.Book{
+		ID:              2,
+		Title:           "Cosmoknights",
+		ISBN13:          "9781603094542",
+		ISBN10:          "1603094547",
+		ListPrice:       2000,
+		PublicationYear: 2019,
+		ImageURL:        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_-4m5gucp1je8_ZQ_Cq9o5HpmFWOxZF9-U9MYiTh21i6Fk4-cKckOXNoOBKp8JDnfe2U&usqp=CAU",
+		Edition:         "Book 1",
+	}
+	Model.DB.Books = append(Model.DB.Books, book2)
+	book3 := Model.Book{
+		ID:              3,
+		Title:           "Essex County",
+		ISBN13:          "9781603090384",
+		ISBN10:          "160309038X",
+		ListPrice:       500,
+		PublicationYear: 1990,
+		ImageURL:        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDfKCqmZFO8i0_e5udrDV6WaA9JsXRzqZOgzywSOk6YoAl1xBxj2BTzWUzTFDUjiTyo_E&usqp=CAU",
+		Edition:         "",
+	}
+	Model.DB.Books = append(Model.DB.Books, book3)
+	book4 := Model.Book{
+		ID:              4,
+		Title:           "Hey, Mister (Vol 1)",
+		ISBN13:          "9781891830020",
+		ISBN10:          "1891830023",
+		ListPrice:       1200,
+		PublicationYear: 2000,
+		ImageURL:        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStvMTNhfrIzEFHYeEp1o5L1v92hJ8A9vjV0AdApHv3bhc7MTJFA6MI6VbPfEzyDrhvXY4&usqp=CAU",
+		Edition:         "After School Special",
+	}
+	Model.DB.Books = append(Model.DB.Books, book4)
+	book5 := Model.Book{
+		ID:              5,
+		Title:           "The Underwater Welder",
+		ISBN13:          "9781603093989",
+		ISBN10:          "1603093982",
+		ListPrice:       3000,
+		PublicationYear: 2022,
+		ImageURL:        "https://m.media-amazon.com/images/I/71q1zQ-4rTL._AC_UF350,350_QL50_.jpg",
+		Edition:         "",
+	}
+	Model.DB.Books = append(Model.DB.Books, book5)
+}
+
+// Function to generate random data for your structures
+func GenerateRandomData() {
+	fmt.Println("Generating Random Data")
+
+	seedData()
+
+	rand.Seed(time.Now().UnixNano())
+
+	for i := 1; i <= 20; i++ {
+		firstname := generateFirstName(i + 1)
+		secondname := generateLastName(i + 3)
+		for _, bookAuthor := range Model.DB.Authors {
+			if bookAuthor.FirstName == firstname && bookAuthor.LastName == secondname {
+				firstname = generateFirstName(i + 2)
+				secondname = generateLastName(i + 4)
+				break
+
+			}
+		}
+		author := Model.Author{
+			ID:         len(Model.DB.Authors) + 1,
+			FirstName:  firstname,
+			LastName:   secondname,
+			MiddleName: "",
+		}
+		Model.DB.Authors = append(Model.DB.Authors, author)
+
+		publishername := generateCompany(i + 1)
+		for _, publisher := range Model.DB.Publishers {
+			if publisher.Name == publishername {
+				publishername = generateCompany(i + 2)
+				break
+			}
+		}
+		publisher := Model.Publisher{
+			ID:   len(Model.DB.Publishers) + 1,
+			Name: generateCompany(i),
+		}
+		Model.DB.Publishers = append(Model.DB.Publishers, publisher)
+	}
+
+	for i := 1; i <= 1000; i++ {
+
+		isbn13 := generateISBN13()
+		isbn10, _ := service.To10(isbn13)
+
+		book := Model.Book{
+			ID:              len(Model.DB.Books) + 1,
+			Title:           generateBookName(i),
+			ISBN13:          isbn13,
+			ISBN10:          isbn10,
+			ListPrice:       float64(rand.Intn(2500-20+1) + 20),
+			PublicationYear: rand.Intn(100) + 1920, // Random year between 1980 and 2020
+			ImageURL:        "",
+			Edition:         generateBookEdition(i),
+		}
+		Model.DB.Books = append(Model.DB.Books, book)
+
+		bookpublisher := Model.BookPublisher{
+			PublisherID: generateRandomNumber(i, len(Model.DB.Publishers)),
+			BookID:      len(Model.DB.Books),
+		}
+		Model.DB.BookPublishers = append(Model.DB.BookPublishers, bookpublisher)
+
+		bookauthor := Model.BookAuthor{
+			BookID:   len(Model.DB.Books),
+			AuthorID: generateRandomNumber(i, len(Model.DB.Authors)),
+		}
+		Model.DB.BookAuthors = append(Model.DB.BookAuthors, bookauthor)
+
+	}
+	fmt.Println("Generating Random Data Successful!")
+}
+func generateLastName(increment int) string {
+	// Seed the random number generator with the current time
+	rand.Seed(time.Now().UnixNano() + int64(increment))
+
+	// Common first names and last names
+	lastNames := getLastNames()
+
+	// Generate random indices for first name and last name
+	randomLastNameIndex := rand.Intn(len(lastNames))
+
+	// Get the random first name and last name
+	randomLastName := lastNames[randomLastNameIndex]
+
+	return randomLastName
+}
+func generateFirstName(increment int) string {
+	// Seed the random number generator with the current time
+	rand.Seed(time.Now().UnixNano() + int64(increment))
+
+	// Common first names and last names
+	firstNames := getFirstNames()
+
+	// Generate random indices for first name and last name
+	randomFirstNameIndex := rand.Intn(len(firstNames))
+
+	// Get the random first name and last name
+	randomFirstName := firstNames[randomFirstNameIndex]
+
+	// Concatenate the first name and last name to create a full name
+	fullName := randomFirstName
+
+	return fullName
+}
+func generateBookName(increment int) string {
+	//convert increment variable to int64
+
+	// Seed the random number generator with the current time
+	rand.Seed(time.Now().UnixNano() + int64(increment))
+
+	// Common first names and last names
+	booknames := getBooktitlename()
+
+	// Generate random indices for first name and last name
+	randombooknamesIndex := rand.Intn(len(booknames))
+
+	// Get the random first name and last name
+	randombooknamesName := booknames[randombooknamesIndex]
+
+	return randombooknamesName
+}
+func generateBookEdition(increment int) string {
+	// Seed the random number generator with the current time
+	rand.Seed(time.Now().UnixNano() + int64(increment))
+
+	// Common first names and last names
+	bookEdition := getBookEdition()
+
+	// Generate random indices for first name and last name
+	randombookEditionIndex := rand.Intn(len(bookEdition))
+
+	return bookEdition[randombookEditionIndex]
+}
+func generateCompany(increment int) string {
+	// Seed the random number generator with the current time
+	rand.Seed(time.Now().UnixNano() + int64(increment))
+
+	// Common first names and last names
+	bookPublisher := getCompanyname()
+
+	// Generate random indices for first name and last name
+	randombookEditionIndex := rand.Intn(len(bookPublisher))
+
+	return bookPublisher[randombookEditionIndex]
+}
+func generate10digitNumber(increment int) string {
+	last10Digits := fmt.Sprint(rand.Intn(9999999999999)*increment + 2)
+	if len(last10Digits) >= 13 {
+		// Extract the last 13 digits
+		last10Digits = last10Digits[len(last10Digits)-10:]
+	}
+	return last10Digits
+}
+func generateRandomNumber(increment int, length int) int {
+	// Seed the random number generator with the current time
+	rand.Seed(time.Now().UnixNano() + int64(increment))
+
+	// Generate random number
+	randomNumber := rand.Intn(length)
+
+	return randomNumber
+}
+
+// GetNames returns a list of names.
+func getFirstNames() []string {
+	return []string{
+		"James",
+		"John",
+		"Robert",
+		"Michael",
+		"William",
+		"David",
+		"Richard",
+		"Joseph",
+		"Thomas",
+		"Charles",
+		"Daniel",
+		"Matthew",
+		"Anthony",
+		"Donald",
+		"Paul",
+		"Mark",
+		"George",
+		"Steven",
+		"Kenneth",
+		"Edward",
+		"Brian",
+		"Ronald",
+		"Kevin",
+		"Jason",
+		"Jeffrey",
+		"Gary",
+		"Timothy",
+		"Jose",
+		"Larry",
+		"Frank",
+		"Christopher",
+		"David",
+		"Eric",
+		"Stephen",
+		"Scott",
+		"Justin",
+		"Brandon",
+		"Andrew",
+		"Raymond",
+		"Gregory",
+		"Joshua",
+		"Jerry",
+		"Dennis",
+		"Walter",
+		"Patrick",
+		"Peter",
+		"Harold",
+		"Jeremy",
+		"Aaron",
+		"Ralph",
+		"Benjamin",
+		"Samuel",
+		"Adam",
+		"Charles",
+		"Franklin",
+		"Arthur",
+		"Harry",
+		"Jonathan",
+		"Terry",
+		"Willie",
+		"Phillip",
+		"Carl",
+		"Louis",
+		"Russell",
+		"Billy",
+		"Bobby",
+		"Steve",
+		"Albert",
+		"Lawrence",
+		"Randy",
+		"Eugene",
+		"Henry",
+		"Martin",
+		"Leonard",
+		"Anthony",
+		"Victor",
+		"Fred",
+		"Alan",
+		"Bruce",
+		"Ricky",
+		"Randy",
+		"Randall",
+		"Roger",
+		"Edwin",
+		"Frederick",
+		"Shawn",
+		"Bradley",
+		"Louis",
+		"Craig",
+		"Gary",
+		"Jimmy",
+		"Jeffery",
+		"Samuel",
+		"Curtis",
+		"Vincent",
+		"Douglas",
+		"Ronnie",
+		"Jon",
+		"Corey",
+		"Russell",
+		"Neil",
+		"Rodney",
+		"Antonio",
+		"Jerome",
+		"Marvin",
+		"Jose",
+		"Carlton",
+		"Reginald",
+		"Leon",
+		"Eddie",
+		"Marcus",
+		"Alex",
+		"Terrence",
+		"Juan",
+		"Calvin",
+		"Kurt",
+		"Herbert",
+		"Darrell",
+		"Ted",
+		"Jeremiah",
+		"Randolph",
+		"Floyd",
+		"Leroy",
+		"Sam",
+		"Stanley",
+		"Wallace",
+		"Cameron",
+		"Wade",
+		"Barry",
+		"Dwight",
+		"Melvin",
+		"Ramon",
+		"Orville",
+		"Raul",
+		"Willard",
+		"Ricardo",
+		"Ricky",
+		"Chris",
+		"Gerald",
+		"Daryl",
+		"Arnold",
+		"Kent",
+		"Roberto",
+		"Gabriel",
+		"Warren",
+		"Terrance",
+		"Rufus",
+	}
+}
+
+// GetNames returns a list of names.
+func getLastNames() []string {
+	return []string{
+		"Smith",
+		"Johnson",
+		"Williams",
+		"Jones",
+		"Brown",
+		"Davis",
+		"Miller",
+		"Wilson",
+		"Moore",
+		"Taylor",
+		"Anderson",
+		"Thomas",
+		"Jackson",
+		"White",
+		"Harris",
+		"Martin",
+		"Thompson",
+		"Garcia",
+		"Martinez",
+		"Robinson",
+		"Clark",
+		"Rodriguez",
+		"Lewis",
+		"Lee",
+		"Walker",
+		"Hall",
+		"Allen",
+		"Young",
+		"Hernandez",
+		"King",
+		"Wright",
+		"Lopez",
+		"Hill",
+		"Scott",
+		"Green",
+		"Adams",
+		"Baker",
+		"Gonzalez",
+		"Nelson",
+		"Carter",
+		"Mitchell",
+		"Perez",
+		"Roberts",
+		"Turner",
+		"Phillips",
+		"Campbell",
+		"Parker",
+		"Evans",
+		"Edwards",
+		"Collins",
+		"Stewart",
+		"Morales",
+		"Murphy",
+		"Rogers",
+		"Cook",
+		"Kim",
+		"Cooper",
+		"Ramirez",
+		"Peterson",
+		"Reed",
+		"Bailey",
+		"Sanders",
+		"Ross",
+		"Price",
+		"Long",
+		"Foster",
+		"Powell",
+		"Perry",
+		"Butler",
+		"Barnes",
+		"Smith",
+		"Johnson",
+		"Williams",
+		"Jones",
+		"Brown",
+		"Davis",
+		"Miller",
+		"Wilson",
+		"Moore",
+		"Taylor",
+		"Anderson",
+		"Thomas",
+		"Jackson",
+		"White",
+		"Harris",
+		"Martin",
+		"Thompson",
+		"Garcia",
+		"Martinez",
+		"Robinson",
+		"Clark",
+		"Rodriguez",
+		"Lewis",
+		"Lee",
+		"Walker",
+		"Hall",
+		"Allen",
+		"Young",
+		"Hernandez",
+		"King",
+		"Wright",
+		"Lopez",
+		"Hill",
+		"Scott",
+		"Green",
+		"Adams",
+		"Baker",
+		"Gonzalez",
+		"Nelson",
+		"Carter",
+		"Mitchell",
+		"Perez",
+		"Roberts",
+		"Turner",
+		"Phillips",
+		"Campbell",
+		"Parker",
+		"Evans",
+		"Edwards",
+		"Collins",
+		"Stewart",
+		"Morales",
+		"Murphy",
+		"Rogers",
+		"Cook",
+		"Kim",
+		"Cooper",
+		"Ramirez",
+		"Peterson",
+		"Reed",
+		"Bailey",
+		"Sanders",
+		"Ross",
+		"Price",
+		"Long",
+		"Foster",
+		"Powell",
+		"Perry",
+		"Butler",
+		"Barnes",
+		"Henderson",
+		"Coleman",
+		"Simmons",
+		"Patterson",
+		"Jordan",
+		"Reynolds",
+	}
+}
+func getCompanyname() []string {
+	return []string{"Penguin Random House",
+		"HarperCollins",
+		"Simon & Schuster",
+		"Hachette Book Group",
+		"Macmillan Publishers",
+		"Scholastic Corporation",
+		"Bloomsbury Publishing",
+		"O'Reilly Media",
+		"Addison-Wesley Professional",
+		"Manning Publications",
+		"Pearson",
+		"John Wiley & Sons",
+		"Springer Nature",
+		"Elsevier",
+		"Oxford University Press",
+		"Cambridge University Press",
+		"Routledge",
+		"Abrams Books",
+		"Candlewick Press",
+		"Chronicle Books",
+		"Algonquin Books",
+		"Tor Books",
+		"Quirk Books",
+		"Atria Books",
+		"Dutton Books",
+		"Farrar, Straus and Giroux",
+		"Knopf Doubleday Publishing Group",
+		"Viking Press",
+		"HarperOne",
+		"Henry Holt and Company",
+		"Penguin Random House",
+		"HarperCollins",
+		"Simon & Schuster",
+		"Hachette Book Group",
+		"Macmillan Publishers",
+		"Scholastic Corporation",
+		"Bloomsbury Publishing",
+		"O'Reilly Media",
+		"Addison-Wesley Professional",
+		"Manning Publications",
+		"Pearson",
+		"John Wiley & Sons",
+		"Springer Nature",
+		"Elsevier",
+		"Oxford University Press",
+		"Cambridge University Press",
+		"Routledge",
+		"Abrams Books",
+		"Candlewick Press",
+		"Chronicle Books",
+		"Algonquin Books",
+		"Tor Books",
+		"Quirk Books",
+		"Atria Books",
+		"Dutton Books",
+		"Farrar, Straus and Giroux",
+		"Knopf Doubleday Publishing Group",
+		"Viking Press",
+		"HarperOne",
+		"Henry Holt and Company",
+		"Houghton Mifflin Harcourt",
+		"Random House",
+		"W. W. Norton & Company",
+		"Houghton Mifflin",
+		"University of Chicago Press",
+		"Little, Brown and Company",
+		"Dover Publications",
+		"Pantheon Books",
+		"Sage Publications",
+		"Palgrave Macmillan",
+		"Peachpit Press",
+		"Que Publishing",
+		"Packt Publishing",
+		"Taylor & Francis",
+		"MIT Press",
+		"Nosy Crow",
+		"Hogarth Press",
+		"Grove Press",
+		"Peachtree Publishing",
+		"Dial Books for Young Readers",
+		"Blackwell Publishers",
+		"Harvard University Press",
+		"Bloomsbury Academic",
+		"Perseus Books Group",
+		"Sterling Publishing",
+		"Melville House",
+		"Verso Books",
+		"Basic Books",
+		"Faber and Faber",
+		"Scribner",
+		"Wiley-Blackwell",
+		"McGraw-Hill Education",
+		"McFarland & Company",
+		"Princeton University Press",
+		"Yale University Press",
+		"Cornell University Press",
+		"Beacon Press",
+		"Vintage Books",
+		"Doubleday",
+		"William Morrow",
+		"Ecco Press",
+		"Dover Publications",
+		"Charles Scribner's Sons",
+		"Penguin Books",
+		"Crown Publishing Group",
+		"W. W. Norton & Company",
+		"University of California Press",
+		"Columbia University Press",
+		"Island Press",
+		"Farrar, Straus and Giroux",
+		"Vintage Books",
+		"Ballantine Books",
+		"Dial Press",
+		"Grove Press",
+		"Picador",
+		"Verso Books",
+		"New Directions Publishing",
+		"Seven Stories Press",
+		"Counterpoint Press",
+		"Graywolf Press",
+		"Houghton Mifflin Harcourt",
+		"Macmillan Children's Publishing Group",
+		"Puffin Books",
+		"Scholastic Press",
+		"Candlewick Press",
+		"Little, Brown Books for Young Readers",
+		"Abrams Books for Young Readers",
+		"Disney-Hyperion",
+		"HarperTeen",
+		"Knopf Books for Young Readers",
+		"Simon Pulse",
+		"Egmont Books",
+		"Roaring Brook Press",
+		"Dial Books for Young Readers",
+		"Alfred A. Knopf Books for Young Readers",
+		"Greenwillow Books",
+		"HarperCollins Children's Books",
+		"Crown Books for Young Readers",
+		"Henry Holt and Co. (BYR)",
+		"Atheneum Books for Young Readers",
+		"Simon & Schuster Books for Young Readers",
+		"Balzer + Bray",
+		"HMH Books for Young Readers",
+		"Viking Books for Young Readers",
+		"Arthur A. Levine Books",
+		"Penguin Young Readers",
+		"Chronicle Books for Children",
+		"Sourcebooks Jabberwocky",
+		"Hyperion Books for Children",
+		"Delacorte Press",
+		"Bloomsbury Children's Books",
+		"Hachette Book Group - Children's Books",
+		"Little, Brown Young Readers",
+		"Clarion Books",
+		"FSG Books for Young Readers",
+		"Houghton Mifflin Children's Books",
+		"HarperCollins Children's Books",
+		"Holiday House",
+		"Simon & Schuster Books for Young Readers",
+		"Peachtree Publishers",
+		"Peachtree Publishing Company",
+		"Scholastic Nonfiction",
+		"National Geographic Kids",
+		"Capstone Young Readers",
+		"Nosy Crow",
+		"Peachpit Press",
+		"Quirk Books",
+		"Penguin Workshop",
+		"Orca Book Publishers",
+		"Holiday House Books for Young Readers",
+	}
+}
+func getBooktitlename() []string {
+	return []string{
+		"The Great Gatsby",
+		"To Kill a Mockingbird",
+		"Pride and Prejudice",
+		"1984",
+		"The Catcher in the Rye",
+		"The Hobbit",
+		"The Lord of the Rings",
+		"The Hunger Games",
+		"Brave New World",
+		"The Alchemist",
+		"The Da Vinci Code",
+		"The Shining",
+		"Harry Potter and the Sorcerer's Stone",
+		"The Chronicles of Narnia",
+		"Fahrenheit 451",
+		"War and Peace",
+		"The Grapes of Wrath",
+		"The Road",
+		"The Odyssey",
+		"The Scarlet Letter",
+		"The Giver",
+		"The Handmaid's Tale",
+		"The Name of the Wind",
+		"The Silent Patient",
+		"The Girl on the Train",
+		"The Goldfinch",
+		"Little Women",
+		"The Kite Runner",
+		"Gone with the Wind",
+		"The Fault in Our Stars",
+		"The Nightingale",
+		"Crime and Punishment",
+		"Lord of the Flies",
+		"The Great Expectations",
+		"Animal Farm",
+		"Harry Potter and the Deathly Hallows",
+		"To the Lighthouse",
+		"The Count of Monte Cristo",
+		"Charlotte's Web",
+		"Moby-Dick",
+		"Les Misérables",
+		"The Sun Also Rises",
+		"One Hundred Years of Solitude",
+		"The Picture of Dorian Gray",
+		"Dracula",
+		"The Wind in the Willows",
+		"The Adventures of Sherlock Holmes",
+		"The Jungle Book",
+		"A Tale of Two Cities",
+		"The Little Prince",
+		"Of Mice and Men",
+		"The Great Gatsby",
+		"To Kill a Mockingbird",
+		"Pride and Prejudice",
+		"The Catcher in the Rye",
+		"The Hobbit",
+		"The Lord of the Rings",
+		"The Hunger Games",
+		"Brave New World",
+		"The Alchemist",
+		"The Da Vinci Code",
+		"The Shining",
+		"Harry Potter and the Sorcerer's Stone",
+		"The Chronicles of Narnia",
+		"War and Peace",
+		"The Grapes of Wrath",
+		"The Road",
+		"The Odyssey",
+		"The Scarlet Letter",
+		"The Giver",
+		"The Handmaid's Tale",
+		"The Name of the Wind",
+		"The Silent Patient",
+		"The Girl on the Train",
+		"The Goldfinch",
+		"Little Women",
+		"The Kite Runner",
+		"Gone with the Wind",
+		"The Fault in Our Stars",
+		"The Nightingale",
+		"Crime and Punishment",
+		"Lord of the Flies",
+		"The Great Expectations",
+		"Animal Farm",
+		"Harry Potter and the Deathly Hallows",
+		"To the Lighthouse",
+		"The Count of Monte Cristo",
+		"Charlotte's Web",
+		"Moby-Dick",
+		"Les Misérables",
+		"The Sun Also Rises",
+		"One Hundred Years of Solitude",
+		"The Picture of Dorian Gray",
+		"Dracula",
+		"The Wind in the Willows",
+		"The Adventures of Sherlock Holmes",
+		"The Jungle Book",
+		"A Tale of Two Cities",
+		"The Little Prince",
+		"The Outsiders",
+		"To Kill a Mockingbird",
+		"The Grapes of Wrath",
+		"Of Mice and Men",
+		"The Catcher in the Rye",
+		"Brave New World",
+		"Fahrenheit 451",
+		"The Great Gatsby",
+		"The Lord of the Rings",
+		"The Hobbit",
+		"The Hunger Games",
+		"Animal Farm",
+		"The Chronicles of Narnia",
+		"The Alchemist",
+		"The Da Vinci Code",
+		"The Shining",
+		"Harry Potter and the Sorcerer's Stone",
+		"The Giver",
+		"The Handmaid's Tale",
+		"The Name of the Wind",
+		"The Silent Patient",
+		"The Girl on the Train",
+		"The Goldfinch",
+		"Little Women",
+		"The Kite Runner",
+		"Gone with the Wind",
+		"The Fault in Our Stars",
+		"The Nightingale",
+		"Crime and Punishment",
+		"Lord of the Flies",
+		"The Great Expectations",
+		"To the Lighthouse",
+		"The Count of Monte Cristo",
+		"Charlotte's Web",
+		"Moby-Dick",
+		"Les Misérables",
+		"The Sun Also Rises",
+		"One Hundred Years of Solitude",
+		"The Picture of Dorian Gray",
+		"Dracula",
+		"The Wind in the Willows",
+		"The Adventures of Sherlock Holmes",
+		"The Jungle Book",
+		"A Tale of Two Cities",
+		"The Little Prince",
+		"The Grapes of Wrath",
+		"The Road",
+		"The Odyssey",
+		"The Scarlet Letter",
+		"The Catcher in the Rye",
+		"The Hobbit",
+		"The Lord of the Rings",
+		"The Hunger Games",
+		"Brave New World",
+		"The Alchemist",
+		"The Da Vinci Code",
+		"The Shining",
+		"Harry Potter and the Sorcerer's Stone",
+		"The Chronicles of Narnia",
+		"War and Peace",
+		"The Road",
+		"The Scarlet Letter",
+		"The Giver",
+		"The Handmaid's Tale",
+		"The Name of the Wind",
+		"The Silent Patient",
+		"The Girl on the Train",
+		"The Goldfinch",
+		"Little Women",
+		"The Kite Runner",
+		"Gone with the Wind",
+		"The Fault in Our Stars",
+		"The Nightingale",
+		"Crime and Punishment",
+		"Lord of the Flies",
+		"The Great Expectations",
+		"Animal Farm",
+		"Harry Potter and the Deathly Hallows",
+		"To the Lighthouse",
+		"The Count of Monte Cristo",
+		"Charlotte's Web",
+		"Moby-Dick",
+		"Les Misérables",
+		"The Sun Also Rises",
+		"One Hundred Years of Solitude",
+		"The Picture of Dorian Gray",
+		"Dracula",
+		"The Wind in the Willows",
+		"The Adventures of Sherlock Holmes",
+		"The Jungle Book",
+		"A Tale of Two Cities",
+		"The Little Prince",
+		"The Outsiders",
+		"The Grapes of Wrath",
+		"Of Mice and Men",
+		"The Outsiders",
+		"To Kill a Mockingbird",
+		"The Grapes of Wrath",
+		"Of Mice and Men",
+		"The Catcher in the Rye",
+		"Brave New World",
+		"1984",
+		"Fahrenheit 451",
+		"The Great Gatsby",
+		"The Lord of the Rings",
+		"The Hobbit",
+		"The Hunger Games",
+		"Animal Farm",
+		"The Chronicles of Narnia",
+		"The Alchemist",
+		"The Da Vinci Code",
+		"The Shining",
+		"Harry Potter and the Sorcerer's Stone",
+		"The Giver",
+		"The Handmaid's Tale",
+		"The Name of the Wind",
+		"The Silent Patient",
+		"The Girl on the Train",
+		"The Goldfinch",
+		"Little Women",
+		"The Kite Runner",
+		"Gone with the Wind",
+		"The Fault in Our Stars",
+		"The Nightingale",
+		"Crime and Punishment",
+		"Lord of the Flies",
+		"The Great Expectations",
+		"To the Lighthouse",
+		"The Count of Monte Cristo",
+		"Charlotte's Web",
+		"Moby-Dick",
+		"Les Misérables",
+		"The Sun Also Rises",
+		"One Hundred Years of Solitude",
+		"The Picture of Dorian Gray",
+		"Dracula",
+		"The Wind in the Willows",
+		"The Adventures of Sherlock Holmes",
+		"The Jungle Book",
+		"A Tale of Two Cities",
+		"The Little Prince",
+		"The Road",
+		"The Odyssey",
+		"The Scarlet Letter",
+		"The Outsiders",
+		"The Adventures of Tom Sawyer",
+		"The Secret Garden",
+		"The Stranger",
+		"The Brothers Karamazov",
+		"The Road Not Taken",
+		"The Time Traveler's Wife",
+		"The Bell Jar",
+		"The Color Purple",
+		"The Glass Castle",
+		"The Lovely Bones",
+		"The Shadow of the Wind",
+		"The Secret History",
+		"The Joy Luck Club",
+		"The Night Circus",
+		"The Art of War",
+		"The Book Thief",
+		"The Hand That First Held Mine",
+		"The Help",
+		"The Immortal Life of Henrietta Lacks",
+		"The Martian",
+		"The Passage",
+		"The Poisonwood Bible",
+		"The Power of One",
+		"The Secret Life of Bees",
+		"The Song of Achilles",
+		"The Stand",
+		"The Thirteenth Tale",
+		"The Time Machine",
+		"The Unbearable Lightness of Being",
+		"The Underground Railroad",
+		"The Wind-Up Bird Chronicle",
+		"Things Fall Apart",
+		"Watership Down",
+		"Where the Crawdads Sing",
+		"White Teeth",
+		"Wuthering Heights",
+		"The Night Circus",
+		"The Art of War",
+		"The Book Thief",
+		"The Hand That First Held Mine",
+		"The Help",
+		"The Immortal Life of Henrietta Lacks",
+		"The Martian",
+		"The Passage",
+		"The Poisonwood Bible",
+		"The Power of One",
+		"The Secret Life of Bees",
+		"The Song of Achilles",
+		"The Stand",
+		"The Thirteenth Tale",
+		"The Time Machine",
+		"The Unbearable Lightness of Being",
+		"The Underground Railroad",
+		"The Wind-Up Bird Chronicle",
+		"Things Fall Apart",
+		"Watership Down",
+		"Where the Crawdads Sing",
+		"White Teeth",
+		"Wuthering Heights",
+		"A Clockwork Orange",
+		"A Farewell to Arms",
+		"A Room with a View",
+		"A Thousand Splendid Suns",
+		"All the Light We Cannot See",
+		"Beloved",
+		"Bird Box",
+		"Brave New World",
+		"Dune",
+		"Eleanor Oliphant Is Completely Fine",
+		"Educated",
+		"Fahrenheit 451",
+		"Flowers for Algernon",
+		"Frankenstein",
+		"Gone Girl",
+		"Heart of Darkness",
+		"Infinite Jest",
+		"Jane Eyre",
+		"Life of Pi",
+		"Middlemarch",
+		"Norwegian Wood",
+		"Pachinko",
+		"Rebecca",
+		"Slaughterhouse-Five",
+		"The Bell Jar",
+	}
+}
+func getBookEdition() []string {
+	return []string{
+		"First Edition",
+		"Second Edition",
+		"Third Edition",
+		"Fourth Edition",
+		"Fifth Edition",
+		"Sixth Edition",
+		"Seventh Edition",
+		"Eighth Edition",
+		"Ninth Edition",
+		"Tenth Edition",
+		"Penguin Classics Edition",
+		"Norton Critical Edition",
+		"Vintage International Edition",
+		"Vintage Books Edition",
+		"Vintage Classics Edition",
+		"Oxford World's Classics Edition",
+		"Everyman's Library Edition",
+		"Modern Library Edition",
+		"Signet Classics Edition",
+		"Wordsworth Classics Edition",
+		"Barnes & Noble Collectible Edition",
+		"Signet Classics Edition",
+		"Collins Classics Edition",
+		"Modern Library Edition",
+		"Harper Perennial Modern Classics Edition",
+		"HarperCollins Edition",
+		"HarperCollins Publishers Edition",
+		"HarperCollins Children's Books Edition",
+		"HarperCollins Publishers Ltd Edition",
+		"HarperCollins Publishers Inc Edition",
+		"HarperCollins Publishers India Edition",
+		"HarperCollins Publishers Australia Edition",
+		"HarperCollins Publishers New Zealand Edition",
+		"HarperCollins Publishers Canada Edition",
+		"HarperCollins Publishers South Africa Edition",
+		"HarperCollins Publishers Ltd Edition",
+	}
+
+}
+
+func generateISBN13() string {
+	// Generate a unique seed by adding a sleep duration
+	seed := time.Now().UnixNano()
+	time.Sleep(1 * time.Microsecond) // Sleep for a short duration
+
+	rand.Seed(seed)
+
+	// Create the first 12 digits of the ISBN-13 as a string
+	var isbnDigits string
+	for i := 0; i < 12; i++ {
+		digit := rand.Intn(10) // Generate a random digit from 0 to 9
+		isbnDigits += fmt.Sprintf("%d", digit)
+	}
+
+	// Calculate the ISBN-13 checksum
+	checksum := 0
+	for i, digit := range isbnDigits {
+		n := int(digit - '0') // Convert character digit to integer
+		if i%2 == 0 {
+			checksum += n
+		} else {
+			checksum += n * 3
+		}
+	}
+	checksum = (10 - (checksum % 10)) % 10
+
+	// Append the checksum to the ISBN-13 digits
+	isbnDigits += fmt.Sprintf("%d", checksum)
+
+	// Print the generated ISBN-13 without spaces
+	formattedISBN := strings.ReplaceAll(isbnDigits, " ", "")
+	return formattedISBN
+}
