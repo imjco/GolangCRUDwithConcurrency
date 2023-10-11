@@ -36,12 +36,14 @@ Clone the repository from github
 ## Configurations
 
 ### BackEnd
-    1. Navigate to the root folder and find "main.go"
-    2. Scroll to line number 50, as defaut it is set to localhost and port 8080
+- You can use the steps below to change the Api Url.
+  
+1. Navigate to the root folder and find "main.go"
+2. Scroll to line number 50, as defaut it is set to localhost and port 8080
 ```bash
       fmt.Println("Server started on :8080")
 ```
-    - change it if needed. eg. 
+- Sample edit. 
 ```bash
      fmt.Println("Server started on 192.168.1.1:3030)
 ```
@@ -49,15 +51,17 @@ Clone the repository from github
 ```bash
       go http.ListenAndServe(":8080", handler.CorsMiddleware(r))
 ```   
-    - change it if needed. eg.
+- Sample edit.
 ```bash
       go http.ListenAndServe("192.168.1.1:3030"), handler.CorsMiddleware(r))
 ```     
     4 Save the file to take effect.
 
 ### FrontEnd
-    1. Navigate to project directory and find "CompanyXYZ_Front" folder.
-    2. Edit the following JS file.
+- You can use the steps below to change the Api Url.
+  
+1. Navigate to the project directory and find the "CompanyXYZ_Front" folder.
+2. Edit the following JS file.
 ```bash
       APIURL.js
 ```  
@@ -67,13 +71,7 @@ Clone the repository from github
 ```     
     4. Change the url if needed'
     5. Save the file to take effect.
-## Dependencies
 
-Update the Backend project Dependencies
-
-```bash
-  go mod tidy
-```
 ## Run Locally
 
 ### Backend
