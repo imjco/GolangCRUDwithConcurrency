@@ -35,16 +35,31 @@ Clone the repository from github
 
 ### BackEnd
     1. Navigate to the root folder and find "main.go"
-    2. Scroll to line number 50, as defaut it is set to "fmt.Println("Server started on :8080")". this will use as localhost.
-    - change it if needed. eg. "fmt.Println("Server started on 192.168.1.1:8080")"
-    3. Scroll to line number 53, as defaut it is set to "go http.ListenAndServe(":8080", handler.CorsMiddleware(r))". this will use as localhost.
-    - change it if needed. eg. "go http.ListenAndServe("192.168.1.1:8080", handler.CorsMiddleware(r))".
+    2. Scroll to line number 50, as defaut it is set to localhost and port 8080
+```bash
+      fmt.Println("Server started on :8080")
+```
+    - change it if needed. eg. 
+```bash
+     fmt.Println("Server started on 192.168.1.1:3030)
+```
+    3. Scroll to line number 53, as defaut it is set to localhost and port 8080
+```bash
+      go http.ListenAndServe(":8080", handler.CorsMiddleware(r))
+```   
+    - change it if needed. eg.
+```bash
+      go http.ListenAndServe("192.168.1.1:3030"), handler.CorsMiddleware(r))
+```     
     4 Save the file to take effect.
 
 ### FrontEnd
     1. Navigate to project directory and find "CompanyXYZ_Front" folder.
     2. Edit "APIURL.js".
-    3. By defaut the url path is set to "http://localhost:8080" .
+    3. By defaut the url path is set to localhost and port 8080
+```bash
+      http://localhost:8080
+```     
     4. Change the url if needed'
     5. Save the file to take effect.
 ## Dependencies
