@@ -22,6 +22,7 @@ Start your reading adventure today with XYZ Books!
 - Go 1.20 or above  
 - Web Browser
 - Internet
+- VSCode with go extensions installed
 
 ## Repository
 
