@@ -23,6 +23,7 @@ Start your reading adventure today with XYZ Books!
 - Web Browser
 - Internet
 - VSCode with go extensions installed
+- Ubuntu OS
 
 ## Repository
 
@@ -56,7 +57,10 @@ Clone the repository from github
 
 ### FrontEnd
     1. Navigate to project directory and find "CompanyXYZ_Front" folder.
-    2. Edit "APIURL.js".
+    2. Edit the following JS file.
+```bash
+      APIURL.js
+```  
     3. By defaut the url path is set to localhost and port 8080
 ```bash
       http://localhost:8080
@@ -98,13 +102,12 @@ Update the Backend project Dependencies
     3. This will open on your default browser.
 ## Running Tests
 
-    1. Go to the project directory
+     1. Go to the project directory
 
 ```bash
   cd Montani
 ```
-
-    2. To test, run the following command.
+     2. To test, run the following command.
 
 ```bash
   go test -v ./handler
