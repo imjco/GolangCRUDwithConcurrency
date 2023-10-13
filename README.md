@@ -40,19 +40,19 @@ Clone the repository from github
   
 1. Navigate to the root folder and find "main.go"
 2. Scroll to line number 50, as defaut it is set to localhost and port 8080
-```bash
+```go
       fmt.Println("Server started on :8080")
 ```
 - Sample edit. 
-```bash
+```go
      fmt.Println("Server started on 192.168.1.1:3030)
 ```
     3. Scroll to line number 53, as defaut it is set to localhost and port 8080
-```bash
+```go
       go http.ListenAndServe(":8080", handler.CorsMiddleware(r))
 ```   
 - Sample edit.
-```bash
+```go
       go http.ListenAndServe("192.168.1.1:3030"), handler.CorsMiddleware(r))
 ```     
     4 Save the file to take effect.
@@ -62,11 +62,11 @@ Clone the repository from github
   
 1. Navigate to the project directory and find the "CompanyXYZ_Front" folder.
 2. Edit the following JS file.
-```bash
+```js
       APIURL.js
 ```  
     3. By defaut the url path is set to localhost and port 8080
-```bash
+```js
       http://localhost:8080
 ```     
     4. Change the url if needed'
