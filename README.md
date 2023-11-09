@@ -25,7 +25,7 @@ An Application developed in Golang. It provides core CRUD (Create, Read, Update,
 Clone the repository from github
 
 ```bash
-  git clone https://github.com/imjco/Montani.git
+  git clone https://github.com/imjco/GolangCRUDwithConcurrency.git
 
 ```
 ## Configurations
