@@ -1,29 +1,24 @@
-# XYZ Books Web Application
+
 [![Build Status](https://travis-ci.org/your-username/your-repo.svg?branch=master)](https://travis-ci.org/your-username/your-repo)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 ## Description
 
-The "XYZ Books Web Application" is a dynamic and user-friendly online platform designed to cater to all your reading needs. Crafted with a combination of HTML and Golang, this web application offers an immersive experience for book enthusiasts and readers of all ages.
-
+An Application developed in Golang. It provides core CRUD (Create, Read, Update, Delete) functionalities, allowing efficient management of book records. The application leverages Golang's concurrency for optimized performance.
 ## Features
-- Extensive Book Catalog: Explore a vast collection of books spanning various genres, from classic literature to contemporary bestsellers.
+- CRUD Operations: Enables users to perform essential book management tasks: Create, Read, Update, and Delete.
 
-- User-Friendly Interface: Navigate effortlessly through our intuitive user interface designed with HTML to discover new books, read reviews, and manage your reading list.
+- Concurrency: Utilizes Golang's concurrency to enhance performance during simultaneous operations.
 
-- Secure Transactions: Our Golang backend ensures secure and efficient handling of user data and transactions, guaranteeing a safe environment for all users.
+- Unit Testing: Comprehensive unit tests validate the application's functionalities for stability and reliability.
+  
+- HTML Frontend: Offers an HTML interface for user interaction with the book database.
 
-- Responsive Design: Enjoy seamless access to the XYZ Books Web Application from your desktop, tablet, or mobile device.
-
-- Whether you're a seasoned bookworm or just beginning your literary journey, the XYZ Books Web Application promises to be your go-to destination for discovering, exploring, and enjoying the world of books.
-
-Start your reading adventure today with XYZ Books!
 ## Requirements
 - Go 1.20 or above  
 - Web Browser
 - Internet
 - VSCode with go extensions installed
-- Ubuntu OS
 
 ## Repository
 
