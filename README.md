@@ -98,7 +98,7 @@ Clone the repository from github
      1. Go to the project directory
 
 ```bash
-  cd Montani
+  cd GolangCRUDwithConcurrency
 ```
      2. To test, run the following command.
 
