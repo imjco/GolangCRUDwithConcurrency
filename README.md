@@ -4,7 +4,7 @@
 
 ## Description
 
-An Application developed in Golang. It provides core CRUD (Create, Read, Update, Delete) functionalities, allowing efficient management of book records. The application leverages Golang's concurrency for optimized performance.
+An Application developed in Golang. It provides core CRUD (Create, Read, Update, Delete) functionalities in memory, allowing efficient management of book records. The application leverages Golang's concurrency for optimized performance.
 ## Features
 - CRUD Operations: Enables users to perform essential book management tasks: Create, Read, Update, and Delete.
 
